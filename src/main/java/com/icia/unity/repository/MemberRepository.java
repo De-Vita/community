@@ -1,6 +1,7 @@
 package com.icia.unity.repository;
 
 import com.icia.unity.dto.MemberDTO;
+import com.icia.unity.dto.MemberFileDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,5 +15,11 @@ public class MemberRepository {
     }
 
 
+    public MemberDTO login(MemberDTO memberDTO) {
+        return sql.selectOne("Member.login", memberDTO);
+    }
 
+    public void saveFile(MemberFileDTO memberFileDTO) {
+        sql.insert("Member.saveFile", memberFileDTO);
+    }
 }
