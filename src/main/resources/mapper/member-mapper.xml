@@ -9,14 +9,32 @@
             values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile}, #{memberProfileAttached})
     </insert>
     
-    <insert id="saveFile" parameterType="memberFile">
-        insert into member_file_table(originalFileName, storedFileName, memberId)
-            values (#{originalFileNAme}, #{storedFileName}, #{memberId})
+    <insert id="saveFile" parameterType="memberProfile">
+        insert into member_profile_table(originalFileName, storedFileName, memberId)
+            values (#{originalFileName}, #{storedFileName}, #{memberId})
     </insert>
     
     <select id="login" parameterType="member" resultType="member">
         select * from member_table where memberEmail = #{memberEmail} and memberPassword = #{memberPassword}
     </select>
+
+    <select id="findByMemberEmail" parameterType="member" resultType="member">
+        select * from member_table where memberEmail = #{memberEmail}
+    </select>
+
+    <select id="findFile" resultType="memberProfile">
+        select * from member_profile_table where id = #{id}
+    </select>
+
+    <update id="update" parameterType="member" useGeneratedKeys="true" keyProperty="id">
+        update member_table set memberEmail = #{memberEmail}, memberName = #{memberName}, memberMobile = #{memberMobile}, memberProfileAttached = #{memberProfileAttached}
+            where id = #{id}
+    </update>
+
+    <update id="updateFile" parameterType="memberProfile">
+        update member_profile_table set originalFileName = #{originalFileName}, storedFileName = #{storedFileName}, memberId = #{memberId}
+            where id = #{id}
+    </update>
 
 </mapper>
 

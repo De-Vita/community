@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter
 @Setter
 @ToString
+
 public class MemberDTO {
     private Long id;
     private String memberEmail;
@@ -16,4 +17,5 @@ public class MemberDTO {
     private String memberMobile;
     private int memberProfileAttached;
     private MultipartFile memberProfile;
+
 }

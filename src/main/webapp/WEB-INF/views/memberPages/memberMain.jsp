@@ -12,6 +12,6 @@
 </head>
 <body>
     <h2>memberMain</h2>
-    <a href="/member/mypage">마이 페이지</a>
+    <%@include file="../component/nav.jsp"%>
 </body>
 </html>
