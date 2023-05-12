@@ -13,7 +13,7 @@
 <body>
 <form action="/board/save" method="post" enctype="multipart/form-data">
   <input type="text" name="boardTitle" placeholder="제목"> <br>
-  <input type="text" name="boardWriter" value="${sessionScope.loginEmail}"> <br>
+  <input type="text" name="boardWriter" value="${sessionScope.loginEmail}" readonly> <br>
   <textarea name="boardContents" id="" cols="30" rows="10"></textarea> <br>
   <input type="file" name="boardFile" multiple>
   <input type="submit" value="작성">

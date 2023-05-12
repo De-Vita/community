@@ -17,7 +17,8 @@
     <input type="text" name="memberPassword" id="memberPassword" placeholder="비밀번호 입력"> <br>
     <input type="text" name="memberName" value="${member.memberName}"> <br>
     <input type="text" name="memberMobile" value="${member.memberMobile}"> <br>
-    <input type="file" name="memberProfile" value=${member.memberProfile}> <br>
+    <input type="file" name="memberProfile"}> <br>
+    <div id="fileName">${profile.originalFileName}</div>
     <input type="button" onclick="update_check()" value="수정">
 </form>
 </body>

@@ -35,7 +35,7 @@ public class BoardService {
                 boardFileDTO.setOriginalFileName(originalFileName);
                 boardFileDTO.setStoredFileName(storedFileName);
                 boardFileDTO.setBoardId(dto.getId());
-                String savePath = "C:\\springframework_img\\" + storedFileName;
+                String savePath = "D:\\springframework_img\\" + storedFileName;
                 boardFile.transferTo(new File(savePath));
                 boardRepository.saveFile(boardFileDTO);
             }

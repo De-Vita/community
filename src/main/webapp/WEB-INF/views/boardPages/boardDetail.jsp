@@ -82,11 +82,13 @@
                 </c:otherwise>
             </c:choose>
         </div>
-        <div id="comment-write-area">
-            <input type="text" id="comment-writer" value="${sessionScope.loginEmail}" readonly>
-            <input type="text" id="comment-contents" placeholder="댓글 내용">
-            <button onclick="comment_write()">작성</button>
-        </div>
+        <c:if test="${sessionScope.loginEmail != null}">
+            <div id="comment-write-area">
+                <input type="text" id="comment-writer" value="${sessionScope.loginEmail}" readonly>
+                <input type="text" id="comment-contents" placeholder="댓글 내용">
+                <button onclick="comment_write()">작성</button>
+            </div>
+        </c:if>
     </div>
 </body>
 <script>
