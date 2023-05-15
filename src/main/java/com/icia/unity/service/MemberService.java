@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -73,4 +74,16 @@ public class MemberService {
         }
     }
 
+    public List<MemberDTO> findAll() {
+        List<MemberDTO> memberDTOList = memberRepository.findAll();
+        if (memberDTOList.size() == 0) {
+            return null;
+        } else {
+            return memberDTOList;
+        }
+    }
+
+    public void delete(Long id) {
+        memberRepository.delete(id);
+    }
 }

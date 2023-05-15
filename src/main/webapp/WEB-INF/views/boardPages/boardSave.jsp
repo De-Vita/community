@@ -15,7 +15,7 @@
   <input type="text" name="boardTitle" placeholder="제목"> <br>
   <input type="text" name="boardWriter" value="${sessionScope.loginEmail}" readonly> <br>
   <textarea name="boardContents" id="" cols="30" rows="10"></textarea> <br>
-  <input type="file" name="boardFile" multiple>
+  <input type="file" accept="image/*"- name="boardFile" multiple>
   <input type="submit" value="작성">
 </form>
 </body>

@@ -9,9 +9,14 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
-    <%@include file="./component/nav.jsp"%>
+<%@include file="./component/header.jsp" %>
+<%@include file="./component/nav.jsp" %>
+<section>
     <h2>index</h2>
+</section>
+<%@include file="./component/footer.jsp" %>
 </body>
 </html>

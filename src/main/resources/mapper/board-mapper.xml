@@ -5,8 +5,8 @@
 
 <mapper namespace="Board">
     <insert id="save" parameterType="board" useGeneratedKeys="true" keyProperty="id">
-        insert into board_table(boardTitle, boardWriter, boardContents, fileAttached)
-            values (#{boardTitle}, #{boardWriter}, #{boardContents}, #{fileAttached})
+        insert into board_table(boardTitle, boardWriter, boardContents, fileAttached, memberId)
+            values (#{boardTitle}, #{boardWriter}, #{boardContents}, #{fileAttached}, #{memberId})
     </insert>
 
     <insert id="saveFile" parameterType="boardFile">
@@ -36,6 +36,14 @@
 
     <select id="count" resultType="Integer">
         select count(id) from board_table
+    </select>
+
+    <select id="searchCount" parameterType="java.util.HashMap" resultType="Integer">
+        select count(id) from board_table where ${type} like concat('%', #{q}, '%')
+    </select>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table where ${type} like concat('%', #{q}, '%') order by id desc limit #{start}, #{limit}
     </select>
 
 </mapper>

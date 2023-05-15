@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-
+<footer>
+    <h2>하단</h2>
+</footer>
 </body>
 </html>

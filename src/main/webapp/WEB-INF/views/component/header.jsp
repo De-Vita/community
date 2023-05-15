@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
+<header>
     <h2>Community</h2>
+</header>
 </body>
 </html>
