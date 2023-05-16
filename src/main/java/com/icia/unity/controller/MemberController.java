@@ -85,7 +85,7 @@ public class MemberController {
         memberService.update(memberDTO);
         MemberDTO updateMember = memberService.findByMemberEmail(memberDTO.getMemberEmail());
         model.addAttribute("member", updateMember);
-        return "memberPages/memberDetail";
+        return "redirect:/member/mypage";
     }
 
     @PostMapping("/email-check")

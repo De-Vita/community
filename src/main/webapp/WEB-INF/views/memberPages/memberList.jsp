@@ -12,6 +12,7 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
     <div id="section">
         <table>
             <tr>

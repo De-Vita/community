@@ -96,4 +96,28 @@ public class BoardController {
         return "boardPages/boardPaging";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/board/";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id , Model model) {
+        BoardDTO boardDTO = boardService.findById(id);
+        if (boardDTO.getFileAttached() == 1) {
+            List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
+            model.addAttribute("boardFile", boardFileDTOList);
+        }
+        model.addAttribute("board", boardDTO);
+        return "boardPages/boardUpdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute BoardDTO boardDTO, Model model) throws IOException {
+        boardService.update(boardDTO);
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        return "redirect:/board/";
+    }
+
 }

@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
 <form action="/member/login" method="post">
     <input type="text" name="memberEmail" placeholder="이메일">
     <input type="text" name="memberPassword" placeholder="비밀번호">

@@ -61,16 +61,16 @@ public class MemberService {
         } else {
             memberDTO.setMemberProfileAttached(1);
             MemberDTO dto = memberRepository.update(memberDTO);
+            memberRepository.deleteProfile(memberDTO.getId());
             String originalFilename = memberDTO.getMemberProfile().getOriginalFilename();
             String storedFilename = UUID.randomUUID().toString() + "-" + originalFilename;
             MemberProfileDTO memberProfileDTO = new MemberProfileDTO();
             memberProfileDTO.setOriginalFileName(originalFilename);
             memberProfileDTO.setStoredFileName(storedFilename);
             memberProfileDTO.setMemberId(dto.getId());
+            memberRepository.saveFile(memberProfileDTO);
             String savePath = "D:\\springframework_img\\" + storedFilename;
             memberDTO.getMemberProfile().transferTo(new File(savePath));
-            memberRepository.update(memberDTO);
-
         }
     }
 

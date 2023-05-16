@@ -12,6 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
 <form action="/member/save" method="post" enctype="multipart/form-data">
     <input type="text" name="memberEmail" id="member-email" placeholder="이메일" onblur="email_check()"> <br>
     <p id="check-result"></p>

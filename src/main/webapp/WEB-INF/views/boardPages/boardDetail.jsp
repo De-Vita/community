@@ -15,6 +15,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
     <div id="section">
         <table>
             <tr>
@@ -55,6 +56,10 @@
                 </tr>
             </c:if>
         </table>
+        <c:if test="${board.boardWriter == sessionScope.loginEmail}">
+            <button onclick="board_update()">수정</button>
+            <button onclick="board_delete()">삭제</button>
+        </c:if>
         <div id="comment-list">
             <c:choose>
                 <c:when test="${commentList == null}">
@@ -92,6 +97,14 @@
     </div>
 </body>
 <script>
+    const board_delete = () => {
+        const id = '${board.id}';
+        location.href = "/board/delete?id=" + id;
+    }
+    const board_update = () => {
+        const id = '${board.id}';
+        location.href = "/board/update?id=" + id;
+    }
     const comment_write = () => {
       const commentWriter = document.getElementById("comment-writer").value;
       const commentContents = document.getElementById("comment-contents").value;

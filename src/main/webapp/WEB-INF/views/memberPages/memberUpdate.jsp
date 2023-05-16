@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
 <form action="/member/update" method="post" enctype="multipart/form-data" name="updateForm">
     <input type="text" name="id" value="${member.id}" readonly> <br>
     <input type="text" name="memberEmail" value="${member.memberEmail}"> <br>

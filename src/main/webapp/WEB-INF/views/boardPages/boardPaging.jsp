@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
+<%@include file="../component/nav.jsp" %>
     <div id="section">
         <div class="container" id="search-area">
             <form action="/board/paging" method="get">
